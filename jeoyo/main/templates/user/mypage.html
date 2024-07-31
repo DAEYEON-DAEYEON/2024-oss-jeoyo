@@ -1,0 +1,171 @@
+{% extends 'common/base.html' %}
+
+{% block title %} 저요🤚 {% endblock %}
+
+{% block extra_css %}
+{% load humanize %}
+<link rel="stylesheet" href="/static/css/mypage.css">
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="explanation" class="contents main_contents">
+        <div class="exp-box">
+            
+            
+            
+            <div class="exp-content">
+                <div class="exp-text">
+                    <h3>My Info</h3>
+
+                        
+                        <span class="label">이름</span>
+                        <span class="value">{{user.name}}</span>
+                        
+                        <span class="label">🪙잔여 크레딧</span>
+                        <span class="value">{{user.credit|intcomma}}</span>
+                        
+                        <!-- <a href="/register" class="register-btn"><p>회원가입</p></a> -->
+                        <!-- <button class="custom-btn btn-4"><span>로그인</span></button> -->
+
+                </div>
+            </div>
+            
+            
+            
+            <div class="exp-content" id="auctions">
+                <div class="exp-text">
+                    <h2>Auctions</h2>
+                    
+                    
+                    <!-- 내가 판매하는 물건 -->
+                    <div class="auc-box">
+                        <h4>판매 중</h4>
+                        <div class="pro-box">
+                            
+                            {% for lt in pro %}
+                            <!-- 판매리스트 -->
+                            <a href="/proser/detail?sid={{lt.sid}}">
+                            <div class="exp-content">
+                                <div class="exp-text">
+
+                                    <h5>{{lt.name}}</h5>
+                                    <!-- <p class="">이름</p> -->
+                                    <p class="pro-name">입찰 최고가</p>
+                                    {% if maxval %}
+                                    <p class="price">{{lt.maxval|intcomma}}</p>
+                                    {% else %}
+                                    <p style="color:black;">입찰자 없음</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            </a>
+                            <!-- 판매리스트 끝-->
+                            {% endfor %}
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- 내가 참여 중인 경매 -->
+                    <div class="auc-box">
+                        <h4>참여 중</h4>
+                        <div class="pro-box">
+                        
+                            {% for lt in auc %}
+                            <!-- 경매리스트 -->
+                            <a href="/proser/detail?sid={{lt.sid}}">
+                            <div class="exp-content">
+                                <div class="exp-text">
+
+                                    <h5>{{lt.name}}</h5>
+                                    <!-- <p class="">이름</p> -->
+                                    <p class="pro-name">입찰 최고가</p>
+                                    <p class="price">{{lt.maxval|intcomma}}</p>
+                                    <p class="pro-name">나의 제시가격</p>
+                                    <p class="price">{{lt.offerprice|intcomma}}</p>
+                                </div>
+                            </div>
+                            </a>
+                            <!-- 경매리스트 끝-->
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="auc-box">
+                        <h4>거래완료</h4>
+                        <div class="pro-box">
+                            {% for lt in done %}
+                            <!-- 판매리스트 -->
+                            <a href="/proser/detail?sid={{lt.sid}}">
+                            <div class="exp-content">
+                                <div class="exp-text">
+
+                                    <h5>{{lt.name}}</h5>
+                                    <!-- <p class="">이름</p> -->
+                                    <p class="pro-name">거래가격</p>
+                                    <p class="price">{{lt.maxval|intcomma}}</p>
+                                    <p class="pro-name">크레딧 사용여부</p>
+                                    {% if lt.usecredit > 0 %}
+                                    <p>Yes</p>
+                                    {% else %}
+                                    <p>No</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            </a>
+                            <!-- 판매리스트 끝-->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+        </div>
+    </div>
+    
+
+
+{% endblock %}
+
+<!-- footer -->
+
+{% block extra_script %} 
+<script>
+    function login(obj) {
+      if (!obj.id.value) {
+        alert("아이디를 입력해주세요.");
+        return false;
+      }
+      if (!obj.password.value) {
+        alert("비밀번호를 입력해주세요.");
+        return false;
+      }
+
+      $.ajax({
+        type: 'POST',
+        url: 'https://g-oss-jeoyo-qrxlf.run.goorm.site/api/Login/',
+        data: {
+          'id': obj.id.value,
+          'password': obj.password.value,
+          'csrfmiddlewaretoken': '{{ csrf_token }}'
+        },
+        success: function (ajax_data) {
+          window.location.href = '/';
+        },
+        error: function (xhr, status, error) {
+            alert("ID 혹은 Password를 확인해주세요.");
+            alert(status, error); 
+        }
+      });
+      return false;
+    }
+
+</script>
+
+{% endblock %}

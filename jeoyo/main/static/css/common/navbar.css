@@ -1,0 +1,79 @@
+/* navbar.css */
+
+#navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0px;
+    /* width: 100%;  */
+    width: 100vw;
+    height: 60px;
+    background-color: white;
+    z-index: 900;
+    /* border: 2px solid whitesmoke; */
+    padding: 20px 120px 20px 90px;
+    padding: 20px 15%;
+    /* box-shadow: 0 5px 20px rgba(82, 82, 82, 0.577); */
+}
+
+#navbar a {
+    line-height: 60px;
+    text-decoration: none;
+    color: black;  /*   색 변경   */
+}
+
+#nav-logo {
+    width: 30px;
+    /* margin-left: 30px; */
+    margin: 30px auto 0 30px;
+}
+
+#nav-title {
+    color: black;
+    height: 60px;
+    width: 100px;
+}
+
+#nav-title h2 {
+    margin: 0; 
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 60px;
+}
+
+#navbox{
+    display: flex;
+}
+
+.nav-bar{
+    margin: 10px;
+}
+
+.nav-bars{
+    margin: 10px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+@media all and (max-width:767px) {
+    .navbar-visible {
+        height: 600px;
+    }
+
+    .list-visible {
+        height: 500px;
+    }
+    
+    .navbar-list {
+        width: 300px;
+        margin: 50px auto;
+        box-sizing: border-box;
+    }
+
+
+    .navbar-list ul { 
+        width: 200px;
+        margin: 10px 46px;
+    }
+}

@@ -1,0 +1,114 @@
+{% extends 'common/base.html' %}
+
+{% block title %} 저요🤚 {% endblock %}
+
+{% block extra_css %}
+    <!-- 페이지 스타일 -->
+    <link rel="stylesheet" href="/static/css/proser/list.css">
+    <link rel="stylesheet" href="/static/css/proser/card.css">
+
+{% endblock %}
+
+
+{% block content %}
+
+
+    <!-- Keyword -->
+    <div id="keywords" class="contents main-contents">
+        {% if op == '0' %}
+        <img src="/static/img/product.png" alt="" class="exp-imgs">
+        {% elif op == '1' %}
+        <img src="/static/img/service.png" alt="" class="exp-imgs">
+        {%endif%}
+
+        <div class="des-box">
+            <h2 class="keyword-title">{% if op == '0' %}물건{% elif op == '1' %}서비스{%endif%}거래</h2>
+            <div class="keyword-content">
+                <div class="keyword-item">
+                    {% if op == '0' %}
+                    <h4>내가 원하는 가격에 물건을 사고 팔 수는 없을까?</h4>
+                    <p>내가 원하는 가격을 제시하고 구매할 수 있습니다.</p>
+                    <p>고정된 가격에 물건을 사기 보다 합리적인 가격에 구매해보세요!</p>  
+                    {% elif op == '1' %}
+                    <h4>내가 원하는 가격에 서비스를 받을 수는 없을까?</h4>
+                    <p>내가 원하는 가격을 제시하고 서비스 견적을 받아보세요.</p>
+                    <p>서비스를 찾아가기보다 찾아오는 서비스를 이용해보세요!</p> 
+                    {%endif%}
+                </div>
+                {% if request.session.id %}
+                <a href="/proser/create?op={{op}}">
+                <button class="custom-btn btn-5"><span>
+                    {% if op == '0' %}물건판매하기{% elif op == '1' %}서비스이용하기{%endif%}
+                    </span></button>
+                </a>
+                {% else %}
+                <a href="/login">
+                <button id="gologin" class="custom-btn btn-5"><span>
+                    {% if op == '0' %}물건판매하기{% elif op == '1' %}서비스이용하기{%endif%}
+                    </span></button>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- <hr> -->
+
+    <!-- Explanation -->
+    <div id="explanation" class="contents main_contents">
+        <h2>
+            {% if op == '0' %}물건 구매하기{% elif op == '1' %}서비스 제공하기{%endif%}
+        </h2>
+        
+        <div class="exp-box" id="exp-box">
+            <!-- 리스트 들어갈 부분 -->
+
+            {% for lt in list %}
+            <a href="/proser/detail?sid={{ lt.sid }}" style="text-decoration:none;">
+                {% if lt.usecredit == 0 %}
+                <div class="exp-content">
+                {% else %}
+                <div class="exp-content card">
+                {% endif %}
+                    <div class="img-box">
+                        <img src="https://g-oss-jeoyo-qrxlf.run.goorm.site/media/{{ lt.img }}" alt="" class="exp-imgs">
+                    </div>
+                    <div class="exp-text">
+                        <h5>{{ lt.name }}</h5> 
+                        <p>{{ lt.des }}</p>
+                        <p>{{ lt.uid }}</p>
+                        <p class="date-txt">{{ lt.date }}</p> 
+                        {% if lt.serviceend == True %}
+                        <p style="color:red; font-size: 13px; font-weight:900; text-align:right;">입찰 종료</p>
+                        {% endif %}
+                    </div>
+                    
+                </div>
+            </a>
+            {% endfor %}
+            
+            <!-- 리스트 들어갈 부분 끝 -->
+        </div>
+    </div>
+
+
+{% endblock %}
+
+<!-- footer -->
+
+{% block extra_script %} 
+<script>
+
+$(document).ready(function() {
+    
+    $('#gologin').click(function() {
+        if (alert("로그인이 필요한 서비스입니다.")) {
+            window.location.href = '/login';;
+        }
+    });
+
+});
+
+</script>
+
+{% endblock %}

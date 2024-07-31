@@ -1,0 +1,84 @@
+{% extends 'common/base.html' %}
+
+{% block title %} 저요🤚 {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
+
+
+{% block content %}
+
+<div id="explanation" class="contents main_contents">
+    <h2>
+        회원가입🤚
+    </h2>
+    <div class="exp-box">
+        <div class="exp-content">
+            <div class="exp-text">
+                <h3>Register</h3>
+                <form onSubmit="return register(this);">
+                {% csrf_token %}
+
+                    <label name="name">이름</label>
+                    <input type="text" name="name">
+
+                    <label name="id">아이디</label>
+                    <input type="text" name="id">
+
+                    <label name="id">비밀번호</label>
+                    <input type="password" name="password">
+
+                    <button class="custom-btn btn-4" style="margin-top:30px;"><span>회원가입</span></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+
+{% endblock %}
+
+<!-- footer -->
+
+{% block extra_script %} 
+<script>
+    function register(obj) {
+      if (!obj.name.value) {
+        alert("이름을 입력해주세요.");
+        return false;
+      }
+      if (!obj.id.value) {
+        alert("아이디를 입력해주세요.");
+        return false;
+      }
+      if (!obj.password.value) {
+        alert("비밀번호를 입력해주세요.");
+        return false;
+      }
+
+      $.ajax({
+        type: 'POST',
+        url: 'https://g-oss-jeoyo-qrxlf.run.goorm.site/api/Register/',
+        data: {
+          'id': obj.id.value,
+          'name': obj.name.value,
+          'password': obj.password.value,
+          'csrfmiddlewaretoken': '{{ csrf_token }}'
+        },
+        success: function (ajax_data) {
+            alert("회원가입되었습니다.");
+          window.location.href = '/login';
+        },
+        error: function (xhr, status, error) {
+            alert("이미 존재하는 아이디입니다.");
+            // alert(status, error);
+        }
+      });
+      return false;
+    }
+
+</script>
+
+{% endblock %}

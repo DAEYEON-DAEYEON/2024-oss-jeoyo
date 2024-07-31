@@ -1,0 +1,77 @@
+{% extends 'common/base.html' %}
+
+{% block title %} 저요🤚 {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="explanation" class="contents main_contents">
+        <h2>
+            🤚로그인
+        </h2>
+        <div class="exp-box">
+            <div class="exp-content">
+                <div class="exp-text">
+                    <h3>Login</h3>
+                    <form onSubmit="return login(this);">
+                    {% csrf_token %}
+                        
+                        <label name="id">아이디</label>
+                        <input type="text" name="id">
+                        
+                        <label name="id">비밀번호</label>
+                        <input type="password" name="password">
+                        
+                        <a href="/register" class="register-btn"><p>회원가입</p></a>
+                        <button class="custom-btn btn-4"><span>로그인</span></button>
+                    </form>
+                </div>
+                <!-- <img src="/static/img/product.png" alt="" class="exp-imgs"> -->
+            </div>
+        </div>
+    </div>
+    
+
+
+{% endblock %}
+
+<!-- footer -->
+
+{% block extra_script %} 
+<script>
+    function login(obj) {
+      if (!obj.id.value) {
+        alert("아이디를 입력해주세요.");
+        return false;
+      }
+      if (!obj.password.value) {
+        alert("비밀번호를 입력해주세요.");
+        return false;
+      }
+
+      $.ajax({
+        type: 'POST',
+        url: 'https://g-oss-jeoyo-qrxlf.run.goorm.site/api/Login/',
+        data: {
+          'id': obj.id.value,
+          'password': obj.password.value,
+          'csrfmiddlewaretoken': '{{ csrf_token }}'
+        },
+        success: function (ajax_data) {
+          window.location.href = '/';
+        },
+        error: function (xhr, status, error) {
+            alert("ID 혹은 Password를 확인해주세요.");
+            alert(status, error); 
+        }
+      });
+      return false;
+    }
+
+</script>
+
+{% endblock %}
