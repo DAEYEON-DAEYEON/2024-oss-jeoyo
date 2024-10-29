@@ -1,6 +1,6 @@
 {% extends 'common/base.html' %}
 
-{% block title %} JEOYO {% endblock %}
+{% block title %}{% endblock %}
 
 {% block extra_css %}
 {% load humanize %}
@@ -194,7 +194,7 @@
         contentType: false,
         success: function (ajax_data) {
             //해당 리스트로 이동하도록 변경
-            alert("가격제시가 완료되었습니다.");
+            alert("가격 제시가 완료되었습니다.");
           window.location.href = '/proser/detail?sid={{sid}}';
         },
         error: function (xhr) {
@@ -241,7 +241,7 @@ $(document).ready(function() {
     
     //크레딧 사용
     $('#use-credit').click(function() {
-        if (confirm("크레딧을 사용하시겠습니까?\n( 🪙500 credit )")) {
+        if (confirm("크레딧을 사용하시겠습니까?\n🪙500 크레딧이 사용됩니다.")) {
             $.ajax({
                 type: 'GET',
                 url: 'https://g-oss-jeoyo-qrxlf.run.goorm.site/api/UsecreditAPI?uid={{uid}}&sid={{sid}}', // 여기서 적절한 URL로 대체

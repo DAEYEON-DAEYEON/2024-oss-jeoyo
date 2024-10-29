@@ -1,6 +1,6 @@
 {% extends 'common/base.html' %}
 
-{% block title %} 저요🤚 {% endblock %}
+{% block title %}{% endblock %}
 
 {% block extra_css %}
     <!-- 페이지 스타일 -->
@@ -79,10 +79,28 @@
                             <p>{{ lt.des }}</p>
                             <!-- <p>{{ lt.uid }}</p> -->
                         </div>         
-                        <p class="date-txt">{{ lt.date }}</p> 
-                        {% if lt.serviceend == True %}
-                        <p style="color:red; font-size: 13px; font-weight:900; text-align:right;">입찰 종료</p>
-                        {% endif %}
+                        <!-- <p class="date-txt">{{ lt.date }}</p>  -->
+                        <!-- 태그 -->
+                        <div id="tag-box">
+                            {% if lt.usecredit != 0 %}
+                            <div class="card-tag" style="background-color: #ffc107;">
+                                <p>
+                                    Use Credit
+                                </p>
+                            </div>
+                        	{% endif %}
+                        	<div>                           
+                                {% if lt.serviceend == True %}
+                                <div class="card-tag" style="background-color:#f06767;">
+                                    <p>입찰종료</p>
+                                </div>
+                                {% else %}
+                                <div class="card-tag" style="background-color:#428BF9;">
+                                    <p>입찰중</p>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                     
                 </div>

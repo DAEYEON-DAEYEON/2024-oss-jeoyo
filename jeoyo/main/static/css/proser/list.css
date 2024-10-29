@@ -98,8 +98,9 @@ hr {
 .exp-content{
     /* padding: 40px 20px; */
     border: 1px solid whitesmoke;
-    box-shadow: 0px 0px 10px 2px #d8d6d6;
-    border-radius: 10px;
+    /* box-shadow: 0px 0px 10px 2px #d8d6d6; */
+    box-shadow: 0px 0px 2px 2px #e3e3e3;
+    border-radius: 1px;
     margin: 20px;
     padding: 21px;
     width: 300px;
@@ -110,8 +111,9 @@ hr {
     background-color: white;
 }
 
-.exp-content:hover{
-    scale: 1.01;
+.exp-content:hover .exp-imgs
+{
+    scale: 1.1;
 }
 
 .exp-text {
@@ -163,6 +165,7 @@ hr {
     position: absolute;
     width: 100%;
     object-fit: fill;
+    transition: 0.3s ease-in-out;
     
     /* width: 380px; */
     margin-top: 0;
@@ -265,4 +268,25 @@ hr {
 .btn-5:hover:after{
   width:100%;
   transition:800ms ease all;
+}
+
+
+#tag-box{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.card-tag {
+	padding: 0 5px;
+    border: 1px solid transparent;
+    margin-left: 4px;
+    border-radius: 1px;
+}
+
+.card-tag p{
+    font-size: 13px;
+    font-weight:800;
+    text-align:right;
+    color: whitesmoke;
 }
