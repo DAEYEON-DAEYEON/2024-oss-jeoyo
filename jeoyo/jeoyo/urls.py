@@ -21,32 +21,33 @@ from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
 #이걸루
-from main import views
+from main.View import View, API
 
 routers = routers.DefaultRouter()
-routers.register('User', views.UserViewSet)
+routers.register('User', API.UserViewSet)
 
 urlpatterns = [
     re_path('admin/', admin.site.urls),
-    re_path('api/User/', views.UserAPI.as_view()),
-    re_path('api/Register/', views.RegisterAPI.as_view()),
-    re_path('api/Login/', views.LoginAPI.as_view()),
+    re_path('api/User/', API.UserAPI.as_view()),
+    re_path('api/Register/', API.RegisterAPI.as_view()),
+    re_path('api/Login/', API.LoginAPI.as_view()),
     # re_path('api/Logout/', views.LogoutAPI.as_view()),
-    re_path('api/Service/', views.ServiceAPI.as_view()),
-    re_path('api/ServiceList/', views.ServiceListAPI.as_view()),
-    re_path('api/AuctionList/', views.AuctionListAPI.as_view()),
-    re_path('api/ServiceEndAPI/', views.ServiceEndAPI.as_view()),
-    re_path('api/SearchServiceByUidAPI/', views.SearchServiceByUidAPI.as_view()),
-    re_path('api/UsecreditAPI/', views.UsecreditAPI.as_view()),
+    re_path('api/Service/', API.ServiceAPI.as_view()),
+    re_path('api/ServiceList/', API.ServiceListAPI.as_view()),
+    re_path('api/AuctionList/', API.AuctionListAPI.as_view()),
+    re_path('api/ServiceEndAPI/', API.ServiceEndAPI.as_view()),
+    re_path('api/SearchServiceByUidAPI/', API.SearchServiceByUidAPI.as_view()),
+    re_path('api/UsecreditAPI/', API.UsecreditAPI.as_view()),
+    
     ## 프론트단
-    path('', views.IndexView.as_view()), #main
-    path('login/', views.Login.as_view()), #login
-    path('logout/', views.Logout.as_view()), #logout
-    path('register/',views.Register.as_view()),
-    path('proser/create',views.Create.as_view()),
-    path('proser/list',views.List.as_view()),
-    path('proser/detail',views.Detail.as_view()),
-    path('mypage',views.Mypage.as_view()),
+    path('', View.IndexView.as_view()), #main
+    path('login/', View.Login.as_view()), #login
+    path('logout/', View.Logout.as_view()), #logout
+    path('register/',View.Register.as_view()),
+    path('proser/create',View.Create.as_view()),
+    path('proser/list',View.List.as_view()),
+    path('proser/detail',View.Detail.as_view()),
+    path('mypage',View.Mypage.as_view()),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # media 경로 추가

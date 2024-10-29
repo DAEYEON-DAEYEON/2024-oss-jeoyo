@@ -1,4 +1,4 @@
-/* index2.css */
+
 
 
 hr {
@@ -11,12 +11,16 @@ hr {
     
 }
 
+#navbar {
+    border-bottom: 2px solid #418CE9;
+}
+
 
 /* 키워드 설명 */
 #keywords {
     /* text-align: center; */
     /* margin-top: 42px; */
-    padding: 80px 0 60px;
+    padding: 80px 0 20px;
     display: flex;
     justify-content: center;
     align-items: center
@@ -71,7 +75,7 @@ hr {
 #explanation {
     /* color: #EEEEEE; */
     text-align: center;
-    padding: 100px 0; 
+    padding: 0px 0 100px; 
 }
 
 #explanation h2{
@@ -97,7 +101,7 @@ hr {
     box-shadow: 0px 0px 10px 2px #d8d6d6;
     border-radius: 10px;
     margin: 20px;
-    padding: 40px;
+    padding: 21px;
     width: 300px;
     height: 420px;
     max-height: 380px;
@@ -110,11 +114,12 @@ hr {
     scale: 1.01;
 }
 
-/* .exp-text{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
-} */
+.exp-text {
+    height: 120px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
 
 .exp-text h3 {
     margin: 5px 0;
@@ -144,8 +149,10 @@ hr {
 }
 
 .exp-content .img-box {
+    position: relative;
+    
     width: 100%;
-    height: 180px;
+    height: 207px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,11 +160,15 @@ hr {
 }
 
 .exp-content .exp-imgs {
+    position: absolute;
+    width: 100%;
+    object-fit: fill;
+    
     /* width: 380px; */
     margin-top: 0;
     /* text-align: right; */
     min-width: 0;
-    width: 120px;
+    /* width: 120px; 요거 주석 함*/
     margin-left: 0;
     border: 20px;
 }
@@ -217,11 +228,14 @@ hr {
   line-height: 42px;
   padding: 0;
   border: none;
-  background: RGB(105, 214, 244);
-  background: linear-gradient(0deg, RGB(105, 214, 244) 0%, RGB(105, 214, 244) 100%);
+  /* background: RGB(105, 214, 244); */
+    background: #428BF9;
+  /* background: linear-gradient(0deg, RGB(105, 214, 244) 0%, RGB(105, 214, 244) 100%); */
+    background: linear-gradient(0deg, #428BF9 0%, #428BF9 100%);
 }
 .btn-5:hover {
-  color: RGB(105, 214, 244);
+  /* color: RGB(105, 214, 244); */
+    color: #428BF9;
   background: transparent;
    box-shadow:none;
 }
@@ -233,7 +247,8 @@ hr {
   right:0;
   height:2px;
   width:0;
-  background: RGB(105, 214, 244);
+  /* background: RGB(105, 214, 244); */
+    background: #428BF9;
   box-shadow:
    -1px -1px 5px 0px #fff,
    7px 7px 20px 0px #0003,

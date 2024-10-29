@@ -32,7 +32,7 @@ body {
   /* height: var(--card-height); */
   /* padding: 3px; */
   position: relative;
-  border-radius: 10px;
+  border-radius: 4px;
   /* justify-content: center; */
   /* align-items: center; */
   /* text-align: center; */
@@ -60,7 +60,7 @@ body {
   content: "";
   width: 104%;
   height: 102%;
-  border-radius: 10px;
+  border-radius: 4px;
   background-image: linear-gradient(
     var(--rotate)
     , #5ddcff, #3c67e3 43%, #4e00c2);
@@ -83,9 +83,9 @@ body {
   margin: 0 auto;
   transform: scale(0.8);
   filter: blur(calc(var(--card-height) / 6));
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
+    , #5ddcff, #3c67e3 43%, #4e00c2); */
     opacity: 1;
   transition: opacity .5s;
   animation: spin 2.5s linear infinite;

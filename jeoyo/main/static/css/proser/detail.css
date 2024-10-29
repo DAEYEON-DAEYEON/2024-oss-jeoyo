@@ -21,8 +21,8 @@
 #pro .exp-content{
     /* padding: 40px 20px; */
     border: 1px solid whitesmoke;
-    box-shadow: 0px 0px 10px 2px #d8d6d6;
-    border-radius: 20px;
+    box-shadow: 0px 0px 10px 2px #f1f1f1;
+    border-radius: 1px;
     margin: 20px;
     padding: 40px;
     width: 500px;

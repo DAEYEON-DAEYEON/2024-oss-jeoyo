@@ -5,12 +5,12 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import UserSerializer, ServiceSerializer, AuctionSerializer
-from .models import User,Service,Auction
+from ..serializers import UserSerializer, ServiceSerializer, AuctionSerializer
+from ..models import User,Service,Auction
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.views import View
-from .forms import UserForm, LoginForm, ServiceForm
+from ..forms import UserForm, LoginForm, ServiceForm
 import uuid
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
@@ -221,10 +221,7 @@ class ServiceAPI(APIView):
                 maxval = datamaxval,
                 offeruser = dataofferuser,
             )
-            # createService = Service(
-            #     img="saved_file_path"
-            # )
-            # createService.save()
+           
             
             return HttpResponse("Success", status = 200)
         
@@ -358,20 +355,5 @@ class UsecreditAPI(APIView):
             return HttpResponse("Success", status = 200)
         
         
-# def put(self, request):
-#         dataid = request.POST.get('id')
-#         dataname = request.POST.get('name')
-#         datapassword = request.POST.get('password')
-#         datacredit = request.POST.get('credit')
 
-#         if User.objects.filter(id=dataid).exists():
-#             user = User.objects.get(id=dataid)
-#             user.name = dataname
-#             user.password = datapassword
-#             user.credit = datacredit
-#             user.save()
-            
-#             return HttpResponse("Success", status=200)
-#         else:
-#             return HttpResponse("User not found", status=404)
 

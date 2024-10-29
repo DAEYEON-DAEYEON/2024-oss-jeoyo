@@ -56,9 +56,9 @@
 
     <!-- Explanation -->
     <div id="explanation" class="contents main_contents">
-        <h2>
+        <!-- <h2>
             {% if op == '0' %}물건 구매하기{% elif op == '1' %}서비스 제공하기{%endif%}
-        </h2>
+        </h2> -->
         
         <div class="exp-box" id="exp-box">
             <!-- 리스트 들어갈 부분 -->
@@ -74,9 +74,11 @@
                         <img src="https://g-oss-jeoyo-qrxlf.run.goorm.site/media/{{ lt.img }}" alt="" class="exp-imgs">
                     </div>
                     <div class="exp-text">
-                        <h5>{{ lt.name }}</h5> 
-                        <p>{{ lt.des }}</p>
-                        <p>{{ lt.uid }}</p>
+                        <div>
+                            <h5>{{ lt.name }}</h5> 
+                            <p>{{ lt.des }}</p>
+                            <!-- <p>{{ lt.uid }}</p> -->
+                        </div>         
                         <p class="date-txt">{{ lt.date }}</p> 
                         {% if lt.serviceend == True %}
                         <p style="color:red; font-size: 13px; font-weight:900; text-align:right;">입찰 종료</p>

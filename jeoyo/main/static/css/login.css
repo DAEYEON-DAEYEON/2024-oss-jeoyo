@@ -2,7 +2,7 @@
 #explanation {
     /* color: #EEEEEE; */
     /* text-align: center; */
-    padding: 160px 0; 
+    padding: 105px 0; 
 }
 
 #explanation h2{
@@ -19,11 +19,23 @@
     justify-content: center;
 }
 
+.exp-box form{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#register-form {
+    height: 370px;
+}
+
+
 .exp-content{
     /* padding: 40px 20px; */
     border: 1px solid whitesmoke;
-    box-shadow: 0px 0px 10px 2px #d8d6d6;
-    border-radius: 20px;
+    box-shadow: 0px 0px 10px 2px #f1f1f1;
+    border-radius: 1px;
     margin: 20px;
     padding: 40px;
     width: 400px;
@@ -98,19 +110,20 @@ input:focus, textarea {
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1); */
   outline: none;
+    align-self: center;
 }
 
 
 .btn-4 {
-  background-color: #4dccc6;
-background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+ background-color: #428BF9;
+background-image: linear-gradient(315deg, #428BF9 0%, #96e4df 90%);
   line-height: 42px;
   padding: 0;
   border: none;
 }
 .btn-4:hover{
-  background-color: #89d8d3;
-background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+  background-color:  #428BF9;
+background-image: linear-gradient(315deg, #428BF9 0%, #03c8a8 74%);
 }
 .btn-4 span {
   position: relative;

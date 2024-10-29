@@ -1,6 +1,6 @@
 {% extends 'common/base.html' %}
 
-{% block title %} 저요🤚 {% endblock %}
+{% block title %} JEOYO {% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="/static/css/login.css">
@@ -11,25 +11,29 @@
 
 <div id="explanation" class="contents main_contents">
     <h2>
-        회원가입🤚
+        SIGN IN
     </h2>
     <div class="exp-box">
         <div class="exp-content">
             <div class="exp-text">
-                <h3>Register</h3>
-                <form onSubmit="return register(this);">
+                <form id="register-form" onSubmit="return register(this);">
                 {% csrf_token %}
+                    <div>
+                        
+                    
+                        <label name="name">Name</label>
+                        <input type="text" name="name" placeholder="사용자명을 입력해주세요.">
 
-                    <label name="name">이름</label>
-                    <input type="text" name="name">
+                        <label name="id">ID</label>
+                        <input type="text" name="id" placeholder="아이디를 입력해주세요.">
 
-                    <label name="id">아이디</label>
-                    <input type="text" name="id">
+                        <label name="id">PASSWORD</label>
+                        <input type="password" name="password" placeholder="비밀번호를 입력해주세요.">
+                        
+                        <a href="/login" class="register-btn"><p>Login In</p></a>
+                    </div>
 
-                    <label name="id">비밀번호</label>
-                    <input type="password" name="password">
-
-                    <button class="custom-btn btn-4" style="margin-top:30px;"><span>회원가입</span></button>
+                    <button class="custom-btn btn-4" style="margin-top:30px;"><span>Sign In</span></button>
                 </form>
             </div>
         </div>
