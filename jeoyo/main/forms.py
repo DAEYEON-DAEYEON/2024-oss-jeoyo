@@ -20,7 +20,7 @@ class ServiceForm(forms.Form):
     uid = forms.CharField()    
     name = forms.CharField(max_length=80)
     des = forms.CharField(max_length=150)
-    img = forms.ImageField()
+    img = forms.ImageField(required = False)
     option = forms.CharField(max_length=10)
     maxval = forms.CharField()
     offeruser = forms.CharField(required=False)

@@ -183,14 +183,18 @@ class ServiceAPI(APIView):
     
     #최초 제시 API
     def post(self, request):
+        # if request in FILES: 
         form = ServiceForm(request.POST, request.FILES)
+        # else:
+        #     form = ServiceForm(request.POST)
         print("받긴 받음")
         
         if form.is_valid():
+            print("유효성 ㅇㅇ")
             user_uuid = uuid.uuid4()  # 새로운 UUID 생성
             # file_content = form['img']
-            file_content = request.FILES['img']
-            names = list(file_content.name.split('.'))
+            # file_content = request.FILES['img']
+            # names = list(file_content.name.split('.'))
             #print(names[1])
             dataname = form.cleaned_data['name']
             datades = form.cleaned_data['des']
@@ -202,11 +206,19 @@ class ServiceAPI(APIView):
             print(datauid)
             print(dataname)
             print(datades)
-            #파일 경로 생성
-            file_path = f'{user_uuid}.{names[1]}'
             
-            # 저장. (리턴값: 저장된 파일 경로)
-            saved_file_path = default_storage.save(file_path, ContentFile(file_content.read()))
+            saved_file_path = "null-img.png"
+            print(request.FILES)
+            if "img" in request.FILES:
+                file_content = request.FILES['img']
+                names = list(file_content.name.split('.'))
+                #파일 경로 생성
+                file_path = f'{user_uuid}.{names[1]}'
+                # 저장. (리턴값: 저장된 파일 경로)
+                saved_file_path = default_storage.save(file_path, ContentFile(file_content.read()))
+            else:
+                print("null이당")
+            print(saved_file_path)
             
             tmpUser = User.objects.get(id = datauid)
             print(tmpUser)

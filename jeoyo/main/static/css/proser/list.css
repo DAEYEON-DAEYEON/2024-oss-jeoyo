@@ -27,7 +27,7 @@ hr {
 }
 
 #keywords img {
-    width: 310px;
+    width: 253px;
     min-width: 150px;
     /* height: 310px; */
     margin-right: 30px;
@@ -281,7 +281,7 @@ hr {
 	padding: 0 5px;
     border: 1px solid transparent;
     margin-left: 4px;
-    border-radius: 1px;
+    border-radius: 15px;
 }
 
 .card-tag p{

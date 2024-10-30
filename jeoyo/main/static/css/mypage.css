@@ -2,7 +2,7 @@
 #explanation {
     /* color: #EEEEEE; */
     /* text-align: center; */
-    padding: 160px 0; 
+    padding: 100px 0 160px;
 }
 
 #explanation h2{
@@ -33,8 +33,15 @@
     text-decoration: none;
 }
 
-.exp-content:hover{
-    /* scale: 1.01; */
+.credit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.proser-box div{
+    margin-bottom: 20px;
 }
 
 .exp-text h3 {
@@ -66,10 +73,7 @@
 
 .exp-text .value {
     font-weight: 600;
-}
-
-.exp-text span {
-    margin-right: 80px;
+    font-size: 20px;
 }
 
 

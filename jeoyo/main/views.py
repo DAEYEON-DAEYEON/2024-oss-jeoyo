@@ -183,15 +183,21 @@ class ServiceAPI(APIView):
     
     #최초 제시 API
     def post(self, request):
-        form = ServiceForm(request.POST, request.FILES)
-        print("받긴 받음")
+        
+        if request in FILES: 
+        	form = ServiceForm(request.POST, request.FILES)
+            print("check")
+        else:
+            form = ServiceForm(request.POST)
+        print("받긴 받음 ads")
         
         if form.is_valid():
+            print("유효성 검사완")
             user_uuid = uuid.uuid4()  # 새로운 UUID 생성
             # file_content = form['img']
-            file_content = request.FILES['img']
-            names = list(file_content.name.split('.'))
+            # names = list(file_content.name.split('.'))
             #print(names[1])
+            # file_content = request.FILES['img']
             dataname = form.cleaned_data['name']
             datades = form.cleaned_data['des']
             dataoption = form.cleaned_data['option']
@@ -199,17 +205,18 @@ class ServiceAPI(APIView):
             datauid = form.cleaned_data['uid']
             dataofferuser = form.cleaned_data['offeruser']
             
-            print(datauid)
-            print(dataname)
-            print(datades)
-            #파일 경로 생성
-            file_path = f'{user_uuid}.{names[1]}'
-            
-            # 저장. (리턴값: 저장된 파일 경로)
-            saved_file_path = default_storage.save(file_path, ContentFile(file_content.read()))
+            saved_file_path = "/media/null-img.png"
+
+            if request in FILES:
+                file_content = request.FILES['img']
+                names = list(file_content.name.split('.'))
+                #파일 경로 생성
+                file_path = f'{user_uuid}.{names[1]}'
+                # 저장. (리턴값: 저장된 파일 경로)
+                saved_file_path = default_storage.save(file_path, ContentFile(file_content.read()))
+            print(saved_file_path)
             
             tmpUser = User.objects.get(id = datauid)
-            print(tmpUser)
             
             #해당 필드에 넣고 저장 끝~
             Service.objects.create(

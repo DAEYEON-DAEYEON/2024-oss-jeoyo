@@ -4,6 +4,8 @@ body {
     /* background-color: whitesmoke; */
     /* 나중에 미디어쿼리 처리 */
     min-width: 600px;
+    
+    -webkit-font-smoothing: antialiased;
 }
 
 .width-ctl{
@@ -42,26 +44,44 @@ body {
 
 }
 
-/* @keyframes fadeIn2 {
-    0% {
-      opacity: 0;
-    }
-    80% {
-        opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-} */
+
+
 
 #main-title h2{
+    position:relative;	
     font-size: 68px;
     margin-bottom: 0;
 }
 
+#main-title span {
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    animation: bounce .5s cubic-bezier(0.4, 0, 1, 1) 4 alternate;
+    /* font-family: 'Titan One', cursive; */
+    /* font-size: 80px; */
+    color: #FFF;
+}
+
+#main-title h2 span:nth-child(2) { animation-delay: .2s; transform: translateX(-15px); }
+#main-title h2 span:nth-child(3) { animation-delay: .32s; transform: translateX(-30px); }
+#main-title h2 span:nth-child(4) { animation-delay: .44s; transform: translateX(-46px);}
+#main-title h2 span:nth-child(5) { animation-delay: .56s; transform: translateX(-63px);}
+#main-title h2 span:nth-child(6) { animation-delay: .68s; transform: translateX(-76px);}
+#main-title h2 span:nth-child(7) { animation-delay: .8s;}
+
+@keyframes bounce {
+  100% {
+    top: -20px;
+  }
+}
+
+
 #title-hand {
+    position: relative;
     width: 120px;
     z-index: 3;
+    transform: translateX(-114px);
 }
 
 #main-subtitle {

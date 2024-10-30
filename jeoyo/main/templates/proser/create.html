@@ -21,7 +21,13 @@
                 {% endif %}
                 
             </h3>
-            <p>판매하실 제품을 등록하시고 최소 금액을 설정해주세요!</p>
+            <p>
+                {% if op == '0' %}
+                판매하실 제품을
+                {% elif op == '1' %}
+                이용하실 서비스를
+                {% endif %} 등록하시고 최소 금액을 설정해주세요!
+            </p>
         </div>
         <div>
             <button class="custom-btn btn-4"><span onclick="create();">{% if op == '0' %}제품{% elif op == '1' %}서비스{% endif %} 등록</span></button>
@@ -147,7 +153,11 @@
       formData.append('option', obj.option.value);
       formData.append('uid', obj.uid.value);
       formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-      formData.append('img', obj.img.files[0]);
+    if (obj.img.files[0] != null){
+        formData.append('img', obj.img.files[0]);
+        console.log(obj.img.files[0]);
+    }
+      
 
       $.ajax({
         type: 'POST',

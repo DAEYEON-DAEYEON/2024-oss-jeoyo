@@ -66,7 +66,9 @@
                             {% if serviceend == True %}
                             <button class="custom-btn btn-4"><span style="color:#0046f3b3; font-weight: 600;">입찰 종료</span></button>
                             {% elif request.session.id and request.session.id == uid %}
+                            	{% if usecredit == 0 %}
                             <button id="use-credit" class="custom-btn btn-4"><span>크레딧 사용</span></button>
+                            	{% endif %}
                                 {% if auctions %}
                             <button id="finish" class="custom-btn btn-4"><span style="color: #004e54d6; font-weight: 600;">낙찰</span></button>
                                 {% else %}
