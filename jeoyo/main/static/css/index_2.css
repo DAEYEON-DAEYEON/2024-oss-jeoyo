@@ -1,8 +1,6 @@
 /* document \ index2.css */
 
 body {
-    /* background-color: whitesmoke; */
-    /* 나중에 미디어쿼리 처리 */
     min-width: 600px;
     
     -webkit-font-smoothing: antialiased;
@@ -30,12 +28,9 @@ body {
 
 
 #main-title {
-    /* position: absolute; */
     position: relative;
     display: flex;
     align-items: center;
-    /* top: 260px; */
-    /* color: white; */
     color: white;
     font-weight: 500;
     font-size: 68px;
@@ -58,8 +53,6 @@ body {
     top: 20px;
     display: inline-block;
     animation: bounce .5s cubic-bezier(0.4, 0, 1, 1) 4 alternate;
-    /* font-family: 'Titan One', cursive; */
-    /* font-size: 80px; */
     color: #FFF;
 }
 
@@ -85,15 +78,12 @@ body {
 }
 
 #main-subtitle {
-    /* position: absolute; */
     position: relative;
-    /* top: 410px; */
     color:  white;
     font-weight: 500;
     font-size: 20px;
     text-align: right;
     line-height: 32px;
-    /* animation: fadeIn2 2.6s cubic-bezier(0.46, 0.03, 0.52, 0.96); */
     z-index: 2;
 
 }
@@ -108,8 +98,6 @@ body {
 
 /* Explanation */
 #explanation {
-    /* color: #EEEEEE; */
-    /* text-align: center; */
     padding-top: 100px; 
 }
 
@@ -133,8 +121,6 @@ body {
 }
 
 .exp-content{
-    /* padding: 40px 20px; */
-    /* border: 1px solid whitesmoke; */
     border-radius: 20px;
     margin: 20px;
     padding: 40px;
@@ -253,24 +239,8 @@ body {
 }
 
 
-
-
-hr {
-    width: 80%;
-    margin: 0 auto;
-    color: var(--dark-grey);    /* IE */
-    border-color: #afcfff;  /* 사파리 */
-    background-color: var(--dark-grey);   /* 크롬, 모질라 등, 기타 브라우저 */
-    opacity: 0.5;
-    
-}
-
-
 /* 키워드 설명 */
 .keywords {
-    /* text-align: center; */
-    /* margin-top: 42px; */
-    /* padding: 60px 0; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -287,31 +257,22 @@ hr {
 .keywords h2 {
     margin: 60px 0 24px;
     font-weight: 700;
-    /* font-size: 36px; */
 }
 
 .des-box {
     margin: 20px 30px;
     padding: 40px;
-    /* width: 600px; */
     min-width: 480px;
     text-align: left;
 }
 
-
-.keyword-content {
-    /* text-align: center; */
-    /* margin-top: 42px; */
-}
 
 .keyword-item {
     margin: 25px 0;
 }
 
 .keyword-item h4 {
-    /* color: var(--light-grey); */
     color: black;
-    /* text-decoration: underline; */
     font-size: 18px;
     font-weight: 600;
 }
@@ -320,7 +281,6 @@ hr {
     margin: 5px 0;
     color: rgb(88 88 88 / 76%);
     font-weight: 600;
-    /* color: var(--dark-grey); */
 }
 
 
@@ -363,7 +323,6 @@ hr {
 
 .link-btn:hover {
     cursor: pointer;
-    /* background: linear-gradient(45deg, rgb(118 174 255), transparent); */
     border-color: transparent;
 }
 
@@ -373,7 +332,6 @@ hr {
 
 .link-btn:hover a {
     color: black;
-    /* background-color: rgb(182, 182, 182); */
 }
 
 
@@ -428,7 +386,6 @@ hr {
     .keywords img {
         width: 300px;
         margin-right: 30px;
-        /* align-self: flex-start; */
 	}
     
 

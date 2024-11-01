@@ -148,8 +148,6 @@
         const imgbox = document.getElementById('img_wrap');
         imgbox.style.maxWidth = "500px";
         imgbox.style.display = "flex";
-
-        
         
         var files = e.target.files;
         var filesArr = Array.prototype.slice.call(files);
@@ -214,85 +212,81 @@
       return false;
     }
     
-    
-    
-    
-    
 
-    
-$(document).ready(function() {
-    //팝업
-    // 팝업 열기 버튼 클릭 시
-    $('#price-btn').click(function() {
-        $('#popup').fadeIn(); // 팝업을 표시
-    });
 
-    // 팝업 닫기 버튼 클릭 시
-    $('.close-btn').click(function() {
-        $('#popup').fadeOut(); // 팝업을 숨김
-    });
+    $(document).ready(function() {
+        //팝업
+        // 팝업 열기 버튼 클릭 시
+        $('#price-btn').click(function() {
+            $('#popup').fadeIn(); // 팝업을 표시
+        });
 
-    // 팝업 외부 클릭 시 팝업 닫기
-    $(window).click(function(event) {
-        if ($(event.target).is('#popup')) {
+        // 팝업 닫기 버튼 클릭 시
+        $('.close-btn').click(function() {
             $('#popup').fadeOut(); // 팝업을 숨김
-        }
-    });
-    
-    
-    
-    //크레딧 사용
-    $('#use-credit').click(function() {
-        if (confirm("크레딧을 사용하시겠습니까?\n🪙500 크레딧이 사용됩니다.")) {
-            $.ajax({
-                type: 'GET',
-                url: 'https://g-oss-jeoyo-qrxlf.run.goorm.site/api/UsecreditAPI?uid={{uid}}&sid={{sid}}', // 여기서 적절한 URL로 대체
-                success: function(data) {
-                    alert("🪙500 크레딧이 사용되었습니다.");
-                    window.location.href = '/proser/list?op={{op}}';
-                },
-                error: function (xhr) {
-                    // alert(status, error); 
-                    switch(xhr.status) {
-                      case 404 :
-                        alert("크레딧이 부족합니다.");
-                        break;
+        });
+
+        // 팝업 외부 클릭 시 팝업 닫기
+        $(window).click(function(event) {
+            if ($(event.target).is('#popup')) {
+                $('#popup').fadeOut(); // 팝업을 숨김
+            }
+        });
+
+
+
+        //크레딧 사용
+        $('#use-credit').click(function() {
+            if (confirm("크레딧을 사용하시겠습니까?\n🪙500 크레딧이 사용됩니다.")) {
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://g-oss-jeoyo-qrxlf.run.goorm.site/api/UsecreditAPI?uid={{uid}}&sid={{sid}}', // 여기서 적절한 URL로 대체
+                    success: function(data) {
+                        alert("🪙500 크레딧이 사용되었습니다.");
+                        window.location.href = '/proser/list?op={{op}}';
+                    },
+                    error: function (xhr) {
+                        // alert(status, error); 
+                        switch(xhr.status) {
+                          case 404 :
+                            alert("크레딧이 부족합니다.");
+                            break;
+                        }
                     }
-                }
-            });
-        }
-    });
-    
-    
-    //낙찰
-    $('#finish').click(function() {
-        if (confirm("정말로 입찰을 종료하시겠습니까?")) {
-            $.ajax({
-                type: 'GET',
-                url: 'https://g-oss-jeoyo-qrxlf.run.goorm.site/api/ServiceEndAPI?sid={{ sid }}', // 여기서 적절한 URL로 대체
-                success: function(data) {
-                    alert("낙찰이 완료되었습니다.");
-                    window.location.href = '/proser/list?op={{op}}';
-                },
-                error: function(xhr, status, error) {
-                    alert("낙찰 처리 중 오류가 발생했습니다.");
-                }
-            });
-        }
-    });
-    
-    $('#nofinish').click(function() {
-        alert("현재 경매 참가자가 없습니다.");
-    });
-    
-    $('#gologin').click(function() {
-        if (alert("로그인이 필요한 서비스입니다.")) {
-            window.location.href = '/login';;
-        }
-    });
+                });
+            }
+        });
 
 
-});
+        //낙찰
+        $('#finish').click(function() {
+            if (confirm("정말로 입찰을 종료하시겠습니까?")) {
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://g-oss-jeoyo-qrxlf.run.goorm.site/api/ServiceEndAPI?sid={{ sid }}', // 여기서 적절한 URL로 대체
+                    success: function(data) {
+                        alert("낙찰이 완료되었습니다.");
+                        window.location.href = '/proser/list?op={{op}}';
+                    },
+                    error: function(xhr, status, error) {
+                        alert("낙찰 처리 중 오류가 발생했습니다.");
+                    }
+                });
+            }
+        });
+
+        $('#nofinish').click(function() {
+            alert("현재 경매 참가자가 없습니다.");
+        });
+
+        $('#gologin').click(function() {
+            if (alert("로그인이 필요한 서비스입니다.")) {
+                window.location.href = '/login';;
+            }
+        });
+
+
+    });
 
 </script>
 

@@ -1,7 +1,5 @@
 /* Explanation */
 #explanation {
-    /* color: #EEEEEE; */
-    /* text-align: center; */
     padding: 105px 0; 
 }
 
@@ -32,7 +30,6 @@
 
 
 .exp-content{
-    /* padding: 40px 20px; */
     border: 1px solid whitesmoke;
     box-shadow: 0px 0px 10px 2px #f1f1f1;
     border-radius: 1px;
@@ -44,7 +41,6 @@
 }
 
 .exp-content:hover{
-    /* scale: 1.01; */
 }
 
 .exp-text h3 {
@@ -106,9 +102,6 @@ input:focus, textarea {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-   /* box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1); */
   outline: none;
     align-self: center;
 }

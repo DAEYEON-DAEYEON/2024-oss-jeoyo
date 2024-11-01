@@ -1,16 +1,4 @@
 
-
-
-hr {
-    width: 80%;
-    margin: 0 auto;
-    color: var(--dark-grey);    /* IE */
-    border-color: #afcfff;  /* 사파리 */
-    background-color: var(--dark-grey);   /* 크롬, 모질라 등, 기타 브라우저 */
-    opacity: 0.5;
-    
-}
-
 #navbar {
     border-bottom: 2px solid #418CE9;
 }
@@ -18,8 +6,6 @@ hr {
 
 /* 키워드 설명 */
 #keywords {
-    /* text-align: center; */
-    /* margin-top: 42px; */
     padding: 80px 0 20px;
     display: flex;
     justify-content: center;
@@ -46,19 +32,12 @@ hr {
     text-align: left;
 }
 
-.keyword-content {
-    /* text-align: center; */
-    /* margin-top: 42px; */
-}
-
 .keyword-item {
     margin: 36px 0;
 }
 
 .keyword-item h4 {
-    /* color: var(--light-grey); */
     color: black;
-    /* text-decoration: underline; */
     font-size: 18px;
     font-weight: 600;
 }
@@ -66,14 +45,12 @@ hr {
 .keyword-item p {
     margin: 5px 0;
     color: rgb(0 0 0 / 76%);
-    /* color: var(--dark-grey); */
 }
 
 
 
 /* Explanation */
 #explanation {
-    /* color: #EEEEEE; */
     text-align: center;
     padding: 0px 0 100px; 
 }
@@ -96,9 +73,7 @@ hr {
 }
 
 .exp-content{
-    /* padding: 40px 20px; */
     border: 1px solid whitesmoke;
-    /* box-shadow: 0px 0px 10px 2px #d8d6d6; */
     box-shadow: 0px 0px 2px 2px #e3e3e3;
     border-radius: 1px;
     margin: 20px;
@@ -166,12 +141,8 @@ hr {
     width: 100%;
     object-fit: fill;
     transition: 0.3s ease-in-out;
-    
-    /* width: 380px; */
     margin-top: 0;
-    /* text-align: right; */
     min-width: 0;
-    /* width: 120px; 요거 주석 함*/
     margin-left: 0;
     border: 20px;
 }
@@ -183,10 +154,7 @@ hr {
     color: rgb(182, 182, 182);
 }
 
-
-
 .exp-imgs {
-    /* width: 380px; */
     margin-top: 36px;
     text-align: right;
     min-width: 0;
@@ -195,16 +163,7 @@ hr {
 }
 
 
-
-
-
-
-
-
-
-
-
-
+/* 버튼 디자인  */
 .custom-btn {
   width: 130px;
   height: 40px;
@@ -218,9 +177,6 @@ hr {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-   /* box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1); */
   outline: none;
 }
 
@@ -231,13 +187,10 @@ hr {
   line-height: 42px;
   padding: 0;
   border: none;
-  /* background: RGB(105, 214, 244); */
     background: #428BF9;
-  /* background: linear-gradient(0deg, RGB(105, 214, 244) 0%, RGB(105, 214, 244) 100%); */
     background: linear-gradient(0deg, #428BF9 0%, #428BF9 100%);
 }
 .btn-5:hover {
-  /* color: RGB(105, 214, 244); */
     color: #428BF9;
   background: transparent;
    box-shadow:none;
@@ -250,8 +203,7 @@ hr {
   right:0;
   height:2px;
   width:0;
-  /* background: RGB(105, 214, 244); */
-    background: #428BF9;
+  background: #428BF9;
   box-shadow:
    -1px -1px 5px 0px #fff,
    7px 7px 20px 0px #0003,
@@ -264,12 +216,12 @@ hr {
   left:0;
   bottom:0;
 }
+
 .btn-5:hover:before,
 .btn-5:hover:after{
   width:100%;
   transition:800ms ease all;
 }
-
 
 #tag-box{
     display: flex;

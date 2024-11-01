@@ -9,48 +9,18 @@
   --card-width: calc(var(--card-height) / 1.5);
 }
 
-
-body {
-  /* min-height: 100vh;
-  background: #212534;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 2rem;
-  padding-bottom: 2rem; */
-  /* box-sizing: border-box; */
-}
-
 #explanation {
     box-sizing: border-box;
 }
 
 
 #explanation .card {
-  /* background: #191c29; */
-  /* width: var(--card-width); */
-  /* height: var(--card-height); */
-  /* padding: 3px; */
   position: relative;
-    
-  /* border-radius: 4px; */
-    
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* text-align: center; */
   display: flex;
-  /* font-size: 1.5em; */
   color: rgb(88 199 250 / 0%);
   cursor: pointer;
-  /* font-family: cursive; */
-    /*   임의 추가   */
     
 }
-
-/* #explanation .card:hover {
-  color: rgb(88 199 250 / 100%);
-  transition: color 1s;
-} */
 
 #explanation .card:hover:before, .card:hover:after {
   animation: none;
@@ -62,7 +32,6 @@ body {
   content: "";
   width: 104%;
   height: 102%;
-  /* border-radius: 4px; */
   background-image: linear-gradient(
     var(--rotate)
     , #5ddcff, #3c67e3 43%, #4e00c2);
@@ -85,10 +54,7 @@ body {
   margin: 0 auto;
   transform: scale(0.8);
   filter: blur(calc(var(--card-height) / 6));
-  /* background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2); */
-    opacity: 1;
+	opacity: 1;
   transition: opacity .5s;
   animation: spin 2.5s linear infinite;
 }
@@ -108,9 +74,4 @@ body {
   font-family: sans-serif;
   font-weight: bold;
   margin-top: 2rem;
-}
-
-
-.card h5 {
-    /* color: whitesmoke; */
 }

@@ -1,10 +1,6 @@
 /* navbar.css */
 
 header {
-    /* min-width: 1000px;
-    max-width: 100%; */
-    /* width: 100vw; */
-    /* min-width: 985px; */
     overflow: hidden;
 }
 
@@ -97,10 +93,6 @@ header {
     line-height: 34px;
     color: whitesmoke;
 }
-
-
-
-
 
 
 
